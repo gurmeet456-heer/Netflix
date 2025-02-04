@@ -43,8 +43,8 @@ CODE = (environ.get('CODE', 'https://graph.org/file/4a68641b5519cc8dccb45.jpg'))
 REFER_PICS = (environ.get("REFER_PICS", "https://graph.org/file/1c1a3cb814cd719ae3bd3.jpg https://graph.org/file/1a2e64aee3d4d10edd930.jpg")).split() 
 
 #stream link shortner
-STREAM_SITE = (environ.get('STREAM_SITE', 'publicearn.com'))
-STREAM_API = (environ.get('STREAM_API', '42bf6f9e478c4f3248ec71ba33b0e62118e6f761'))
+STREAM_SITE = (environ.get('STREAM_SITE', ''))
+STREAM_API = (environ.get('STREAM_API', ''))
 STREAMHTO = (environ.get('STREAMHTO', 'https://t.me/moviemarket_official/335'))
 
 # Command
@@ -72,7 +72,7 @@ NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", True)) # True if you want no
 # MongoDB information
 DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://gurmeet1919:1gurmeet@cluster0.chjdcci.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
-COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Netflix_Database')
+COLLECTION_NAME = environ.get('COLLECTION_NAME', 'Netflix_Databasess')
 
 DOWNLOAD_LOCATION = environ.get("DOWNLOAD_LOCATION", "./DOWNLOADS/AudioBoT/")
 
@@ -101,9 +101,9 @@ VERIFY = bool(environ.get('VERIFY',False)) # Verification On ( True ) / Off ( Fa
 HOWTOVERIFY = environ.get('HOWTOVERIFY', 'https://t.me/How_to_Download_7x/26') # How to open tutorial link for verification
 
 # Others
-SHORTLINK_URL = environ.get('SHORTLINK_URL', 'publicearn.com')
-SHORTLINK_API = environ.get('SHORTLINK_API', '42bf6f9e478c4f3248ec71ba33b0e62118e6f761')
-IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
+SHORTLINK_URL = environ.get('SHORTLINK_URL', 'mdiskshortner.link')
+SHORTLINK_API = environ.get('SHORTLINK_API', 'd164c57265f68e1d934e3aa69b204ee179efa6d4')
+IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', True))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "5")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
