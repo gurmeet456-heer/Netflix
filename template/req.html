@@ -59,8 +59,6 @@
                     <button class="magnet" onclick="s_player()" aria-label="Watch in S Player"><img src="https://i.postimg.cc/XYJr6NGg/s.png" alt="S Player Icon">ᴡᴀᴛᴄʜ ɪɴ s ᴘʟᴀʏᴇʀ</button>
                     <button class="magnet" onclick="hd_player()" aria-label="Watch in HD Player"><img src="https://i.postimg.cc/rFT43LNh/hd.png" alt="HD Player Icon">ᴡᴀᴛᴄʜ ɪɴ ʜᴅ ᴘʟᴀʏᴇʀ(4K)</button>
                     <button class="magnet" onclick="bisalDownload()" aria-label="Download Video"><img style="height: 35px;" src="https://i.postimg.cc/Zncc9YLq/Pngtree-download-icon-3581467.png" alt="Download Icon">ᴅᴏᴡɴʟᴏᴀᴅ ᴠɪᴅᴇᴏ</button>
-                    <!-- Rotation Button -->
-                    <button class="magnet" onclick="rotateVideo()" aria-label="Rotate Video"><img src="https://i.postimg.cc/XYZ.png" alt="Rotate Icon">Rotate</button>
                 </div>
             </div>
 
@@ -142,16 +140,7 @@
         });
 
         new WOW().init();
-
-        // Rotation Functionality
-        let rotation = 0;
-
-        function rotateVideo() {
-            rotation += 90; // Increment rotation by 90 degrees
-            const player = document.getElementById('player');
-            player.style.transform = `rotate(${rotation}deg)`;
-        }
     </script>
 </body>
 
-    </html>
+</html>
