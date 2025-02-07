@@ -4,116 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{file_name}}</title>
+    <title>FileStreamBot | {{file_name}}</title>
+    <link rel="icon" href="https://i.ibb.co/Hh4kF2b/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://i.ibb.co/Hh4kF2b/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/sheryjs/dist/Shery.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/proavipatil/data@main/fs/src/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/proavipatil/data@main/fs/src/plyr.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap');
-        .font-josefin { font-family: 'Josefin Sans', sans-serif; }
-    </style>
+
 </head>
 
-<body class="bg-gray-900 text-white font-josefin">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-gray-800 shadow-lg z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="https://t.me/Filtermovie9_bot" class="text-2xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
-                𝐒𝐓𝐑𝐄𝐀𝐌 𝐌𝐀𝐑𝐊𝐄𝐓
+<body>
+    <nav>
+        <div class="nleft">
+            <a href="#">
+                <h3 id="heading" style="z-index: 100;" class="magnet title">FILE STREAM</h3>
             </a>
-            
-            <div class="hidden md:flex space-x-6">
-                <a href="#main" class="px-3 py-2 rounded hover:bg-gray-700 transition-colors">ʜᴏᴍᴇ</a>
-                <a href="#sec1" class="px-3 py-2 rounded hover:bg-gray-700 transition-colors">ᴀʙᴏᴜᴛ</a>
-            </div>
+        </div>
+        <div class="nryt">
+            <a class="home-btn magnet" href="#main" onclick="toggleWidthnav(this)">HOME</a>
+
+            <a href="#abtus" class="about-btn magnet" onclick="toggleWidthnav(this)">ABOUT</a>
         </div>
     </nav>
+    <center>
+        <div class="about-nav">
+            <a href="#abtus" class="wlcm magnet" onclick="toggleWidth(this)">WELCOME</a>
+            <a href="#channels" class="abt-chnl magnet" onclick="toggleWidth(this)">CHANNELS</a>
+            <a href="#contact" class="magnet contact-btn" onclick="toggleWidth(this)">CONTACT</a>
+        </div>
+    </center>
 
-    <!-- Main Content -->
-    <main class="pt-20 container mx-auto px-4">
-        <!-- Video Player Section -->
-        <section id="main" class="mb-16">
-            <div class="max-w-6xl mx-auto bg-gray-800 rounded-xl shadow-2xl overflow-hidden">
-                <video id="player" class="w-full" src="{{file_url}}" type="video/mp4" playsinline controls></video>
-                
-                <div class="p-6">
-                    <h2 class="text-xl font-bold mb-4">File Name:</h2>
-                    <p class="text-gray-300 break-words">{{file_name}}</p>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-                        <button onclick="vlc_player()" class="flex items-center justify-center bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors">
-                            <img src="https://i.postimg.cc/15TQ4y7B/vlc.png" class="h-6 mr-2" alt="VLC"> ᴠʟᴄ
-                        </button>
-                        <button onclick="mx_player()" class="flex items-center justify-center bg-gray-700 hover:bg-gray-600 p-3 rounded-lg transition-colors">
-                            <img src="https://i.postimg.cc/sx4Msv4T/mx.png" class="h-6 mr-2" alt="MX"> ᴍx
-                        </button>
-                        <button onclick="bisalDownload()" class="flex items-center justify-center bg-indigo-600 hover:bg-indigo-500 p-3 rounded-lg transition-colors">
-                            <img src="https://i.postimg.cc/Zncc9YLq/Pngtree-download-icon-3581467.png" class="h-6 mr-2" alt="Download"> ᴅᴏᴡɴʟᴏᴀᴅ
-                        </button>
+    <div class="outer">
+        <div class="inner">
+            <div class="main" id="main">
+                <video id="player" class="player" src="{{file_url}}" type="video/mp4" playsinline controls
+                    width="100%"></video>
+                <div class="player"></div>
+                <div class="file-name">
+                    <h4 style="display: inline;">File Name: </h4>
+                    <p style="display: inline;" id="myDiv">{{file_name}}</p><br>
+                    <h4 style="display: inline;">File Size: </h4>
+                    <p style="display: inline;">{{file_size}}</p>
+                </div>
+                <div class="downloadBtn">
+                    <button class="magnet" onclick="streamDownload()">
+                        <img style="height: 30px;" src="https://i.ibb.co/RjzYttX/dl.png" alt="">download video
+                    </button>
+                    <button class="magnet" onclick="copyStreamLink()">
+                        <img src="https://i.ibb.co/CM4Y586/link.png" alt="Copy Link">copy link
+                    </button>
+                    <button class="magnet" onclick="vlc_player()">
+                        <img src="https://i.ibb.co/px6fQs1/vlc.png" alt="">watch in VLC PLAYER
+                    </button>
+                    <button class="magnet" onclick="mx_player()">
+                        <img src="https://i.ibb.co/41WvtQ3/mx.png" alt="">watch in MX PLAYER
+                    </button>
+                    <button class="magnet" onclick="n_player()">
+                        <img src="https://i.ibb.co/Hd2dS4t/nPlayer.png" alt="">watch in nPlayer
+                    </button>
+                </div>
+
+            </div>
+            <div class="abt">
+                <div class="about">
+                    <div class="about-dets">
+
+                        <div class="abt-sec" id="abtus" style="padding: 160px 30px;">
+                            <h1 style="text-align: center;">WELCOME TO OUR <Span>FILE STREAM</Span> BOT</h1>
+                            <p style="text-align: center; line-height: 2;word-spacing: 2px;  letter-spacing: 0.8px;">
+                                This is a Telegram Bot to Stream <span>Movies</span> and <span>Series</span> directly on
+                                Telegram. You can also
+                                <span>download</span> them if you want. This bot is developed by <a
+                                    href="https://github.com/AviPatilPro"><span style="font-weight: 700;">Avi</span></a>
+                                <br><br>If you like this bot, then don't
+                                forget to share it with your friends and family.
+                            </p>
+                        </div>
+
+                        <div class="abt-sec" id="channels">
+                            <h1>JOIN OUR <span>TELEGRAM</span> CHANNELS</h1>
+                            <div class="links chnl-link">
+                                <a class="magnet" href="https://t.me/CheapieDeals">
+                                    <button>CHEAP DEALS</button>
+                                </a>
+                                <a class="magnet" href="https://t.me/FilmyPixel">
+                                    <button>FILMYPIXEL</button>
+                                </a>
+                                <a class="magnet" href="https://t.me/PostersZone">
+                                    <button>POSTERS ZONE</button>
+                                </a>
+                                <a class="magnet" href="https://t.me/EpitomeQuality">
+                                    <button>EPITOME QUALITY</button>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="abt-sec" id="contact">
+                            <p style="text-align: center;">Report Bugs and Contact us on Telegram Below</p>
+                            <div class="links contact">
+                                <a href="https://t.me/AvishkarPatil">
+                                    <button>CONTACT</button>
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+        <footer>
+            <center>
 
-        <!-- About Sections -->
-        <section id="sec1" class="py-16">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl font-bold mb-8">ᴡᴇʟᴄᴏᴍᴇ <span class="text-indigo-400">sᴛʀᴇᴀᴍɪɴɢ ᴡᴇʙsɪᴛᴇ</span></h1>
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    We're thrilled to have <span class="text-indigo-400">you</span> here. Get ready for an amazing 
-                    <span class="text-indigo-400">experience</span> filled with entertainment, fun, and surprises. 
-                    Grab your snacks and enjoy the show!
-                </p>
-            </div>
-        </section>
+                <div class="movie-cont">
+                    <div class="movieSug">
+                        <div class="movieDets">
 
-        <!-- Channels Section -->
-        <section id="sec2" class="py-16 bg-gray-800">
-            <div class="max-w-6xl mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center mb-12">ᴏᴜʀ <span class="text-indigo-400">ᴄʜᴀɴɴᴇʟs</span></h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <a href="https://t.me/moviemarket_official" class="p-6 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors">
-                        <h3 class="text-xl font-bold mb-2">Updates</h3>
-                        <p class="text-gray-300">Latest movie updates</p>
-                    </a>
-                    <!-- Add more channel cards here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="mt-20 border-t border-gray-700">
-            <div class="container mx-auto px-4 py-12">
-                <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold mb-4">ᴠɪsɪᴛ <a href="#sec3" class="text-indigo-400">ᴏᴜʀ ʙᴏᴛs</a></h3>
-                </div>
-                
-                <div class="text-center text-gray-400">
-                    <p class="mb-6 max-w-2xl mx-auto">
-                        Welcome to our streaming platform! Enjoy hassle-free streaming while respecting copyright laws.
-                    </p>
-                    
-                    <div class="flex justify-center space-x-4 mb-6">
-                        <a href="https://github.com/codeflix-bots" class="hover:text-indigo-400">
-                            <i class="fab fa-github fa-2x"></i>
-                        </a>
-                        <a href="https://t.me/codeflix_bots" class="hover:text-indigo-400">
-                            <i class="fab fa-telegram fa-2x"></i>
-                        </a>
+                        </div>
+                        <div class="movieimg">
+                            <img src="">
+                        </div>
                     </div>
-                    
-                    <p class="text-sm">
-                        © 2023 <a href="https://t.me/sewxiy" class="text-indigo-400">ᴄᴏᴅᴇғʟɪx</a>. All rights reserved.
-                    </p>
+                    <div class="low-width-movie-dets">
+                        <div class="movieStsBar">
+                            <div class="movieDets-mini">
+
+                            </div>
+                        </div>
+                    </div>
+                    <button class="ranMovBtn" onclick="getDets()">Get More Movies Suggestion</button>
                 </div>
-            </div>
+
+            </center>
+
+            <center>
+                <div class="copyright">
+                    <h5 class="text-center">Copyright © 2024 <a href="https://github.com/AviPatilPro"><span
+                                style="font-weight: 700;">Avishkar Patil</span></a>. All
+                        Rights Reserved.</h5>
+                </div>
+            </center>
         </footer>
-    </main>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
-    <!-- Add your custom JS here -->
+    </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.155.0/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const uncopyableElement = document.querySelector(".uncopyable");
+
+        uncopyableElement.addEventListener("selectstart", function (event) {
+            event.preventDefault();
+        });
+    });
+</script>
+<script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
+<script src="https://proavipatil.github.io/data/fs/src/script.js"></script>
+
 </html>
